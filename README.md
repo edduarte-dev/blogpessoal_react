@@ -1,73 +1,160 @@
-# React + TypeScript + Vite
+# Blog Pessoal React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Visão Geral
 
-Currently, two official plugins are available:
+Aplicação web desenvolvida com **React** e **Tailwind CSS**, criada com o objetivo de praticar componentização, estilização moderna e responsividade no desenvolvimento front-end. O projeto apresenta a interface inicial de um blog pessoal, aplicando boas práticas de layout e organização de componentes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Objetivo do Projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Desenvolver a interface de um blog pessoal moderno e responsivo, aplicando conceitos fundamentais de React, componentização reutilizável e estilização utilitária com Tailwind CSS.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **Phosphor Icons**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estrutura de Componentes
+
+### Navbar
+Barra de navegação fixa com efeitos de hover, animações suaves e efeito glass (transparência).
+
+### Home
+Seção principal (hero) com layout responsivo e destaque visual, adaptável para diferentes tamanhos de tela.
+
+### Footer
+Rodapé minimalista com links para redes sociais e informações de contato.
+
+---
+
+## Características da Interface
+
+### Design
+- Gradiente aplicado como fundo global da aplicação
+- Layout responsivo com abordagem mobile-first
+- Componentes sem margens externas para evitar quebras visuais
+- Estilização centralizada utilizando classes utilitárias do Tailwind CSS
+
+### Interatividade
+- Animações suaves em botões e links
+- Efeitos de hover personalizados
+- Transições fluidas entre estados
+
+### Responsividade
+O layout se adapta automaticamente para diferentes dispositivos:
+- **Mobile**: layout em coluna com navegação otimizada
+- **Desktop**: layout em duas colunas com navegação horizontal
+- Breakpoints definidos seguindo as convenções do Tailwind CSS
+
+---
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+
+- Node.js instalado (versão 18 ou superior recomendada)
+- npm ou yarn
+
+### Passo a passo
+
+1. **Clonar o repositório**
+
+```bash
+git clone https://github.com/seu-usuario/blogpessoal-react.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Acessar a pasta do projeto**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd blogpessoal-react
 ```
+
+3. **Instalar as dependências**
+
+```bash
+npm install
+```
+
+4. **Iniciar o servidor de desenvolvimento**
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível em `http://localhost:5173`
+
+---
+
+## Estrutura do Projeto
+
+```text
+blogpessoal-react/
+├── src/
+│   ├── components/
+│   │   ├── navbar/
+│   │   │   └── Navbar.tsx
+│   │   ├── home/
+│   │   │   └── Home.tsx
+│   │   └── footer/
+│   │       └── Footer.tsx
+│   ├── App.tsx
+│   └── main.tsx
+├── public/
+├── index.html
+├── tailwind.config.js
+├── vite.config.ts
+├── package.json
+└── README.md
+```
+
+---
+
+## Decisões Técnicas
+
+### Componentização
+Divisão da interface em componentes reutilizáveis e independentes, facilitando manutenção e escalabilidade do projeto.
+
+### Tailwind CSS
+Utilização de classes utilitárias para estilização, eliminando a necessidade de arquivos CSS tradicionais e proporcionando maior produtividade no desenvolvimento.
+
+### TypeScript
+Implementação de tipagem estática para maior segurança e previsibilidade do código, reduzindo erros em tempo de desenvolvimento.
+
+### Vite
+Escolha do Vite como bundler para desenvolvimento mais rápido e otimizado, com hot module replacement (HMR) instantâneo.
+
+---
+
+## Próximos Passos
+
+Este projeto pode ser expandido com:
+
+- Integração com API de blog (criação, edição e listagem de posts)
+- Sistema de autenticação e gerenciamento de usuários
+- Funcionalidade de comentários
+- Sistema de categorias e tags
+- Busca e filtros de conteúdo
+- Modo escuro/claro
+- Internacionalização (i18n)
+
+---
+
+## Autor
+
+**[Eduardo Duarte Cunha]**
+
+Projeto desenvolvido para fins acadêmicos e de aprendizado em desenvolvimento front-end.
+
+---
+
+## Licença
+
+Este projeto foi desenvolvido para fins educacionais.
