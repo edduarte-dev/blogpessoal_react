@@ -1,34 +1,51 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
-    <header className="w-full sticky top-0 z-50 backdrop-blur bg-indigo-950/80">
-      <div className="container mx-auto flex items-center justify-between px-8 py-4 text-white">
+    <header className="w-full bg-indigo-950 text-white">
+      <div className="container mx-auto flex justify-between items-center py-4 px-8">
 
-        {/* Logo / Título */}
-        <span className="text-lg font-bold tracking-wide">
+        {/* Logo / Home */}
+        <Link to="/home" className="text-2xl font-bold hover:text-indigo-300 transition-colors">
           Blog Pessoal
-        </span>
+        </Link>
 
         {/* Navegação */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {["Postagens", "Temas", "Cadastrar tema", "Perfil", "Sair"].map(
-            (item) => (
-              <span
-                key={item}
-                className="
-                  relative px-1 cursor-pointer
-                  transition-all duration-300
-                  hover:text-indigo-400
+        <nav className="flex gap-6 text-lg">
+          <Link
+            to="/home"
+            className="hover:text-indigo-400 transition-colors"
+          >
+            Postagens
+          </Link>
 
-                  after:absolute after:left-0 after:-bottom-1
-                  after:h-[2px] after:w-0 after:bg-indigo-400
-                  after:transition-all after:duration-300
-                  hover:after:w-full
-                "
-              >
-                {item}
-              </span>
-            )
-          )}
+          <Link
+            to="/temas"
+            className="hover:text-indigo-400 transition-colors"
+          >
+            Temas
+          </Link>
+
+          <Link
+            to="/cadastrar-tema"
+            className="hover:text-indigo-400 transition-colors"
+          >
+            Cadastrar tema
+          </Link>
+
+          <Link
+            to="/perfil"
+            className="hover:text-indigo-400 transition-colors"
+          >
+            Perfil
+          </Link>
+
+          <Link
+            to="/login"
+            className="hover:text-red-400 transition-colors"
+          >
+            Sair
+          </Link>
         </nav>
 
       </div>

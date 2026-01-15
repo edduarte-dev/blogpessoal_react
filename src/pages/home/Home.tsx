@@ -7,7 +7,7 @@ function Home() {
                    min-h-[calc(100vh-80px)]"
       >
         <article className="flex flex-col justify-center items-start gap-6 animate-fade-in">
-          <h1 className="text-6xl font-bold">Seja Bem Vindo!</h1>
+          <h1 className="text-6xl font-bold">Seja bem-vindo!</h1>
 
           <p className="text-3xl text-indigo-200">
             Expresse aqui seus pensamentos e opiniões

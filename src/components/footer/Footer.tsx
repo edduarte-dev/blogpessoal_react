@@ -17,7 +17,8 @@ function Footer() {
 
         <div className="flex gap-6">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/edduarte-dev/"
+            target="_blank"
             aria-label="LinkedIn"
             className="hover:text-indigo-400 transition-colors"
           >
@@ -25,7 +26,8 @@ function Footer() {
           </a>
 
           <a
-            href="#"
+            href="https://github.com/edduarte-dev"
+            target="_blank"
             aria-label="GitHub"
             className="hover:text-indigo-400 transition-colors"
           >
