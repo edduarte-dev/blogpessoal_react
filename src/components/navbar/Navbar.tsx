@@ -4,25 +4,21 @@ function Navbar() {
   return (
     <header className="w-full bg-indigo-950 text-white">
       <div className="container mx-auto flex justify-between items-center py-4 px-8">
-
         {/* Logo / Home */}
-        <Link to="/home" className="text-2xl font-bold hover:text-indigo-300 transition-colors">
+        <Link
+          to="/home"
+          className="text-2xl font-bold hover:text-indigo-300 transition-colors"
+        >
           Blog Pessoal
         </Link>
 
         {/* Navegação */}
         <nav className="flex gap-6 text-lg">
-          <Link
-            to="/home"
-            className="hover:text-indigo-400 transition-colors"
-          >
+          <Link to="/home" className="hover:text-indigo-400 transition-colors">
             Postagens
           </Link>
 
-          <Link
-            to="/temas"
-            className="hover:text-indigo-400 transition-colors"
-          >
+          <Link to="/temas" className="hover:text-indigo-400 transition-colors">
             Temas
           </Link>
 
@@ -39,15 +35,12 @@ function Navbar() {
           >
             Perfil
           </Link>
+          <Link to="/cadastro">Cadastrar</Link>
 
-          <Link
-            to="/login"
-            className="hover:text-red-400 transition-colors"
-          >
+          <Link to="/login" className="hover:text-red-400 transition-colors">
             Sair
           </Link>
         </nav>
-
       </div>
     </header>
   );
