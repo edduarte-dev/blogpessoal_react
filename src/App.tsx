@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import Cadastro from "./pages/cadastro/Cadastro";
 import { AuthProvider } from "./contexts/AuthContext";
 import ListaTemas from "./components/tema/listatemas/ListaTemas";
+import FormTema from "./components/tema/formtema/FormTema";
 
 function App() {
   return (
@@ -17,12 +18,11 @@ function App() {
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Login />} />
-
               <Route path="/home" element={<Home />} />
-
               <Route path="/cadastro" element={<Cadastro />} />
-
               <Route path="/temas" element={<ListaTemas />} />
+              <Route path="/cadastrar-tema" element={<FormTema />} />
+              <Route path="/editar-tema/:id" element={<FormTema />} />
             </Routes>
           </main>
 
