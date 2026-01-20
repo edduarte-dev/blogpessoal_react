@@ -1,4 +1,43 @@
+import {
+  use,
+  useContext,
+  useEffect,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+} from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import type UsuarioLogin from "../../models/UsuarioLogin";
+import { ClipLoader } from "react-spinners";
+
 function Login() {
+  const navigate = useNavigate();
+
+  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
+    {} as UsuarioLogin,
+  );
+
+  useEffect(() => {
+    if (usuario.token !== "") {
+      navigate("/home");
+    }
+  }, [usuario]);
+
+  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    setUsuarioLogin({
+      ...usuarioLogin,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function login(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    handleLogin(usuarioLogin);
+  }
+
   return (
     <main className="flex-1 flex items-center justify-center text-white">
       <section
@@ -28,10 +67,9 @@ function Login() {
               p-8 rounded-xl
               shadow-2xl
             "
+            onSubmit={login}
           >
-            <h2 className="text-3xl font-bold text-center">
-              Entrar
-            </h2>
+            <h2 className="text-3xl font-bold text-center">Entrar</h2>
 
             {/* Usuário */}
             <div className="flex flex-col gap-1">
@@ -46,6 +84,10 @@ function Login() {
                   text-slate-900
                   focus:outline-none focus:ring-2 focus:ring-indigo-400
                 "
+                value={usuarioLogin.usuario}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  atualizarEstado(e)
+                }
               />
             </div>
 
@@ -62,6 +104,10 @@ function Login() {
                   text-slate-900
                   focus:outline-none focus:ring-2 focus:ring-indigo-400
                 "
+                value={usuarioLogin.senha}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  atualizarEstado(e)
+                }
               />
             </div>
 
@@ -86,7 +132,11 @@ function Login() {
                   transition-colors
                 "
               >
-                Entrar
+                {isLoading ? (
+                  <ClipLoader color="white" size={24} />
+                ) : (
+                  <span>Entrar</span>
+                )}
               </button>
             </div>
 

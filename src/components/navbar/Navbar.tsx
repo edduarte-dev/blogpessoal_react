@@ -1,6 +1,18 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const { handleLogout } = useContext(AuthContext);
+
+  function logout() {
+    handleLogout();
+    alert("Usuário deslogado com sucesso");
+    navigate("/");
+  }
+
   return (
     <header className="w-full bg-indigo-950 text-white">
       <div className="container mx-auto flex justify-between items-center py-4 px-8">
@@ -35,9 +47,15 @@ function Navbar() {
           >
             Perfil
           </Link>
-          <Link to="/cadastro">Cadastrar</Link>
 
-          <Link to="/login" className="hover:text-red-400 transition-colors">
+          <Link
+            to="#"
+            onClick={(e) => {
+              e.preventDefault();
+              logout();
+            }}
+            className="hover:text-red-400 transition-colors"
+          >
             Sair
           </Link>
         </nav>
