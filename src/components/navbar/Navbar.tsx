@@ -26,7 +26,7 @@ function Navbar() {
 
         {/* Navegação */}
         <nav className="flex gap-6 text-lg">
-          <Link to="/home" className="hover:text-indigo-400 transition-colors">
+          <Link to="/postagens" className="hover:text-indigo-400 transition-colors">
             Postagens
           </Link>
 

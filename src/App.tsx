@@ -8,12 +8,13 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ListaTemas from "./components/tema/listatemas/ListaTemas";
 import FormTema from "./components/tema/formtema/FormTema";
 import DeletarTema from "./components/tema/deletartema/DeletarTema";
+import ListaPostagens from "./components/postagem/listapostagens/ListaPostagens";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div className="min-h-screen flex flex-col bg-gradient-to-br from-indigo-950 via-indigo-900 to-purple-900">
+        <div className="min-h-screen flex flex-col bg-linear-to-br from-indigo-950 via-indigo-900 to-purple-900">
           <Navbar />
 
           <main className="flex-1">
@@ -25,6 +26,7 @@ function App() {
               <Route path="/cadastrar-tema" element={<FormTema />} />
               <Route path="/editar-tema/:id" element={<FormTema />} />
               <Route path="/deletar-tema/:id" element={<DeletarTema />} />
+              <Route path="/postagens" element={<ListaPostagens/>}/>
             </Routes>
           </main>
 
