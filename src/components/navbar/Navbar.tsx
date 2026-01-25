@@ -12,7 +12,6 @@ function Navbar() {
     navigate("/");
   }
 
-  // 🚫 NÃO renderiza o Navbar se não estiver autenticado
   if (usuario.token === "") {
     return null;
   }
