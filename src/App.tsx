@@ -12,10 +12,13 @@ import ListaPostagens from "./components/postagem/listapostagens/ListaPostagens"
 import FormPostagem from "./components/postagem/formpostagem/FormPostagem";
 import DeletarPostagem from "./components/postagem/deletarpostagem/DeletarPostagem";
 import Perfil from "./pages/perfil/Perfil";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <AuthProvider>
+      <ToastContainer />
       <BrowserRouter>
         <div className="min-h-screen flex flex-col bg-linear-to-br from-indigo-950 via-indigo-900 to-purple-900">
           <Navbar />
