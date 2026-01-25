@@ -4,63 +4,53 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 function Navbar() {
   const navigate = useNavigate();
-
-  const { handleLogout } = useContext(AuthContext);
+  const { usuario, handleLogout } = useContext(AuthContext);
 
   function logout() {
     handleLogout();
-    alert("Usuário deslogado com sucesso");
+    alert("O usuário foi desconectado com sucesso!");
     navigate("/");
   }
 
+  // 🚫 NÃO renderiza o Navbar se não estiver autenticado
+  if (usuario.token === "") {
+    return null;
+  }
+
   return (
-    <header className="w-full bg-indigo-950 text-white">
-      <div className="container mx-auto flex justify-between items-center py-4 px-8">
-        {/* Logo / Home */}
-        <Link
-          to="/home"
-          className="text-2xl font-bold hover:text-indigo-300 transition-colors"
-        >
+    <div className="w-full flex justify-center py-4 bg-indigo-900 text-white">
+      <div className="container flex justify-between items-center text-lg mx-8">
+        
+        <Link to="/home" className="text-2xl font-bold">
           Blog Pessoal
         </Link>
 
-        {/* Navegação */}
-        <nav className="flex gap-6 text-lg">
-          <Link to="/postagens" className="hover:text-indigo-400 transition-colors">
+        <div className="flex gap-6">
+          <Link to="/postagens" className="hover:underline">
             Postagens
           </Link>
 
-          <Link to="/temas" className="hover:text-indigo-400 transition-colors">
+          <Link to="/temas" className="hover:underline">
             Temas
           </Link>
 
-          <Link
-            to="/cadastrar-tema"
-            className="hover:text-indigo-400 transition-colors"
-          >
-            Cadastrar tema
+          <Link to="/cadastrar-tema" className="hover:underline">
+            Cadastrar Tema
           </Link>
 
-          <Link
-            to="/perfil"
-            className="hover:text-indigo-400 transition-colors"
-          >
+          <Link to="/perfil" className="hover:underline">
             Perfil
           </Link>
 
-          <Link
-            to="#"
-            onClick={(e) => {
-              e.preventDefault();
-              logout();
-            }}
-            className="hover:text-red-400 transition-colors"
+          <button
+            onClick={logout}
+            className="hover:underline"
           >
             Sair
-          </Link>
-        </nav>
+          </button>
+        </div>
       </div>
-    </header>
+    </div>
   );
 }
 

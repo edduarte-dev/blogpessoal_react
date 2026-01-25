@@ -9,6 +9,9 @@ import ListaTemas from "./components/tema/listatemas/ListaTemas";
 import FormTema from "./components/tema/formtema/FormTema";
 import DeletarTema from "./components/tema/deletartema/DeletarTema";
 import ListaPostagens from "./components/postagem/listapostagens/ListaPostagens";
+import FormPostagem from "./components/postagem/formpostagem/FormPostagem";
+import DeletarPostagem from "./components/postagem/deletarpostagem/DeletarPostagem";
+import Perfil from "./pages/perfil/Perfil";
 
 function App() {
   return (
@@ -19,6 +22,7 @@ function App() {
 
           <main className="flex-1">
             <Routes>
+              
               <Route path="/" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/cadastro" element={<Cadastro />} />
@@ -27,6 +31,12 @@ function App() {
               <Route path="/editar-tema/:id" element={<FormTema />} />
               <Route path="/deletar-tema/:id" element={<DeletarTema />} />
               <Route path="/postagens" element={<ListaPostagens/>}/>
+              <Route path="/cadastrarpostagem" element={<FormPostagem/>}/>
+              <Route path="/editarpostagem/:id" element={<FormPostagem/>}/>
+              <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
+              <Route path="/perfil" element={< Perfil />} />
+
+
             </Routes>
           </main>
 
